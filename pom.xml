@@ -16,7 +16,6 @@
         <maven.compiler.source>11</maven.compiler.source>
         <junit.version>5.9.2</junit.version>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>jakarta.platform</groupId>
@@ -45,6 +44,17 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.30</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.6.0</version>
         </dependency>
     </dependencies>
 
