@@ -6,7 +6,7 @@ import java.util.List;
 @Data
 @RequiredArgsConstructor
 @NoArgsConstructor
-public final class Agence {
+public final class Agency {
     @NonNull
     private String code;
     @NonNull
@@ -15,9 +15,7 @@ public final class Agence {
     private String adresse;
     @NonNull
     private String phoneNumber;
-//    private List<EmployeeAffectation> employeeAffectations;
-//    private List<Employee> employees;
-//    List<Account> accounts;
-    List<Credit> credits;
+
+    List<CreditRequest> credits;
 }
 
