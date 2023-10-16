@@ -1,4 +1,4 @@
-package hm.bank.Servlets;
+package hm.bank.Servlet;
 
 import java.io.*;
 

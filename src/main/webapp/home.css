@@ -1,0 +1,168 @@
+body
+{
+    margin: 0px;
+    color: black;
+    font-weight: bold;
+    font-size: small;
+}
+
+ul.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    overflow: hidden;
+}
+
+li.navitem {
+    float: left;
+}
+
+li.navitem a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li.navitem a:hover {
+    background-color: #555;
+}
+
+
+#sections_container{
+    display: flex;
+    justify-content: space-around;
+}
+
+#credit_simulation
+{
+    width: 400px;
+    background-color: #F1F2F6;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+}
+
+#myproject_field label{
+    display: block;
+    margin-bottom: 10px;
+}
+#myproject_field #projet{
+    height: 30px;
+    width: 100%;
+    cursor: pointer;
+}
+
+#profession_field label{
+    display: block;
+    margin-bottom: 10px;
+}
+#profession_field #profession{
+    height: 30px;
+    width: 100%;
+    cursor: pointer;
+}
+
+#simulator-amount #amount_input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 50%;
+}
+
+#simulator-amount #amount_ranger{
+    width: 50%;
+}
+
+#simulator-duration #duration_input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 50%;
+}
+
+#simulator-duration #duration_ranger{
+    width: 50%;
+}
+
+#simulator-mnthlypymnt #mnthlypymnt_input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 50%;
+}
+
+#simulator-mnthlypymnt #mnthlypymnt_ranger{
+    width: 50%;
+}
+
+input{
+    color: black;
+    font-weight: lighter;
+    cursor: pointer;
+}
+
+#clients_check{
+    width: 400px;
+    background-color: #F1F2F6;
+    padding: 10px;
+}
+
+#clients_check #client_code_check{
+    height: 25px;
+    width: 95%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#client_check_buttons
+{
+    display: flex;
+    justify-content: space-around;
+}
+#client_code_check_submit
+{
+    width: 30%;
+    height: 25px;
+}
+#client_add_button
+{
+    width: 30%;
+    height: 25px;
+}
+
+#creditrequest_validation
+{
+    width: 400px;
+    background-color: #F1F2F6;
+}
+
+
+.modal {
+    display: none; /* Hide the modal by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+}
+
+/* Styling for the modal content */
+.modal-content {
+    background-color: #fff;
+    width: 60%;
+    max-width: 600px;
+    margin: 100px auto; /* Center the modal on the screen */
+    padding: 20px;
+    border-radius: 5px;
+}
+
+/* Close button styling */
+.close {
+    color: #555;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
