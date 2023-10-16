@@ -1,6 +1,6 @@
-package Model.DTO;
+package hm.bank.Model.DTO;
 
-import Model.DAO.INTERFACES.CreditStatut;
+import hm.bank.Model.DAO.INTERFACES.CreditStatut;
 import lombok.*;
 
 import java.time.LocalDate;

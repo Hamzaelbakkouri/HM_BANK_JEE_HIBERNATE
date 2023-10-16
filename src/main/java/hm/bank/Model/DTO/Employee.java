@@ -1,4 +1,4 @@
-package Model.DTO;
+package hm.bank.Model.DTO;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -13,7 +13,7 @@ import java.time.LocalDate;
 public final class Employee extends Person {
     @Id
     private int id;
-    private String registrationNumber;
+    private String registrationNbr;
     private LocalDate recruitmentDate;
     private String email;
 
@@ -21,6 +21,6 @@ public final class Employee extends Person {
         super(firstname, lastname, dateOfbirth, phonenumber);
         setEmail(Email);
         setRecruitmentDate(recruitmentdate);
-        setRegistrationNumber(registrationnumber);
+        setRegistrationNbr(registrationnumber);
     }
 }

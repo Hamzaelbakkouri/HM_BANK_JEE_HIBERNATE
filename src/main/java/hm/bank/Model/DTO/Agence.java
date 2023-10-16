@@ -1,4 +1,4 @@
-package Model.DTO;
+package hm.bank.Model.DTO;
 import lombok.*;
 
 import java.util.List;

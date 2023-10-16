@@ -4,14 +4,14 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5000/HM_DB</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/hm_bank</property>
         <property name="hibernate.connection.username">postgres</property>
-        <property name="hibernate.connection.password">hamza2018</property>
+        <property name="hibernate.connection.password">1992</property>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
 
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
         <property name="hibernate.show_sql">true</property>
-        <mapping class="Model.DTO.Person" />
-        <mapping class="Model.DTO.Client" />
+        <mapping class="hm.bank.Model.DTO.Person" />
+        <mapping class="hm.bank.Model.DTO.Client" />
     </session-factory>
 </hibernate-configuration>

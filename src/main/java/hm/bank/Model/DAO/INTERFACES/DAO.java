@@ -1,4 +1,4 @@
-package Model.DAO.INTERFACES;
+package hm.bank.Model.DAO.INTERFACES;
 
 import java.util.Optional;
 

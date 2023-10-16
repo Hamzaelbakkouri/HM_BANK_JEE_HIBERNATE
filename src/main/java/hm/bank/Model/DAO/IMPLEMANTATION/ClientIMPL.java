@@ -1,7 +1,7 @@
-package Model.DAO.IMPLEMANTATION;
+package hm.bank.Model.DAO.IMPLEMANTATION;
 
-import Model.DAO.INTERFACES.ClientDAO;
-import Model.DTO.Client;
+import hm.bank.Model.DAO.INTERFACES.ClientDAO;
+import hm.bank.Model.DTO.Client;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;

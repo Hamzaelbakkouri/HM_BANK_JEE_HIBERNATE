@@ -1,4 +1,4 @@
-package Model.DAO.INTERFACES;
+package hm.bank.Model.DAO.INTERFACES;
 
 public enum CreditStatut {
     nonAccepted,

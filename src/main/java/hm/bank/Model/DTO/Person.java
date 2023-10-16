@@ -1,4 +1,4 @@
-package Model.DTO;
+package hm.bank.Model.DTO;
 
 import jakarta.persistence.*;
 import lombok.*;
