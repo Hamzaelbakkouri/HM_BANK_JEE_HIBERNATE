@@ -102,42 +102,6 @@ input{
     cursor: pointer;
 }
 
-#clients_check{
-    width: 400px;
-    background-color: #F1F2F6;
-    padding: 10px;
-}
-
-#clients_check #client_code_check{
-    height: 25px;
-    width: 95%;
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-
-#client_check_buttons
-{
-    display: flex;
-    justify-content: space-around;
-}
-#client_code_check_submit
-{
-    width: 30%;
-    height: 25px;
-}
-#client_add_button
-{
-    width: 30%;
-    height: 25px;
-}
-
-#creditrequest_validation
-{
-    width: 400px;
-    background-color: #F1F2F6;
-}
-
-
 .modal {
     display: none; /* Hide the modal by default */
     position: fixed;

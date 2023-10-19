@@ -1,4 +1,4 @@
-package hm.bank.Servlet;
+package Servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

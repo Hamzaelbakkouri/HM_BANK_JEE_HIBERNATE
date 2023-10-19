@@ -18,5 +18,4 @@ public final class Client extends Person {
         setAddress(address);
         setCode(Code);
     }
-
 }
