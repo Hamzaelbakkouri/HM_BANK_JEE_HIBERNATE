@@ -6,7 +6,7 @@ import Services.ClientService;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
-@WebServlet(name = "helloServlet", value = "/hello-servlet")
+@WebServlet(urlPatterns = {"/addClient", "/checkClient"})
 public class ClientServlet extends HttpServlet {
 
     ClientService clientService;
@@ -17,7 +17,17 @@ public class ClientServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String action = request.getServletPath();
+        switch (action) {
+            case "/addClient":
+                break;
+            case "/checkClient":
+                break;
+        }
+    }
 
+    private void CreateClient(HttpServletRequest request, HttpServletResponse response) {
+        String firstname = request.getParameter("");
     }
 
     @Override
