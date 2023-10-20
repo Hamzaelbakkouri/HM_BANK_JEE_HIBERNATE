@@ -1,9 +1,9 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
-    <title>HM--BANK</title>
-    <link rel="stylesheet" href="css/home.css">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/input_Range.css">
 </head>
 <body>
 <nav class="bg-gray-800">
@@ -23,6 +23,8 @@
                             List</a>
                         <a href="#"
                            class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">List</a>
+                        <a href="firstStep.jsp"
+                           class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">Simulation</a>
                     </div>
                 </div>
             </div>
@@ -64,7 +66,6 @@
             <div class="hidden lg:ml-4 lg:block">
                 <div class="flex items-center">
 
-                    <!-- Profile dropdown -->
                     <div class="relative ml-4 flex-shrink-0">
                         <div>
                             <button type="button"
@@ -76,30 +77,17 @@
                                      alt="">
                             </button>
                         </div>
-
-                        <%-- burger menu --%>
-                        <%-- <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">--%>
-                        <%--     <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>--%>
-                        <%--     <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>--%>
-                        <%--     <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>--%>
-                        <%-- </div>--%>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Mobile menu, show/hide based on menu state. -->
     <div class="lg:hidden" id="mobile-menu">
         <div class="space-y-1 px-2 pt-2 pb-3">
-            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="#" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Dashboard</a>
-            <a href="#"
-               class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
-            <a href="#"
-               class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
-            <a href="#"
-               class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
+            <a href="#" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Credits Requests
+                List</a>
+            <a href="#" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Clients List</a>
         </div>
         <div class="border-t border-gray-700 pt-4 pb-3">
             <div class="flex items-center px-5">
@@ -115,7 +103,7 @@
                 <button type="button"
                         class="ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                     <span class="sr-only">View notifications</span>
-                    <!-- Heroicon name: outline/bell -->
+
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                          stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -137,46 +125,21 @@
     </div>
 </nav>
 
-<%--    navigation --%>
+<%--Navigtion--%>
 <div class="lg:border-t lg:border-b lg:border-gray-200">
     <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Progress">
         <ol role="list"
             class="overflow-hidden rounded-md lg:flex lg:rounded-none lg:border-l lg:border-r lg:border-gray-200">
             <li class="relative overflow-hidden lg:flex-1">
-                <div class="border border-gray-200 overflow-hidden border-b-0 rounded-t-md lg:border-0">
-                    <a href="firstStep.jsp" class="group">
-                            <span class="absolute top-0 left-0 h-full w-1 bg-transparent group-hover:bg-gray-200 lg:bottom-0 lg:top-auto lg:h-1 lg:w-full"
-                                  aria-hidden="true"></span>
-                        <span class="px-6 py-5 flex items-start text-sm font-medium">
-              <span class="flex-shrink-0">
-                <span class="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-600">
-                  <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                       fill="currentColor" aria-hidden="true">
-                    <path fill-rule="evenodd"
-                          d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z"
-                          clip-rule="evenodd"></path>
-                  </svg>
-                </span>
-              </span>
-              <span class="mt-0.5 ml-4 flex min-w-0 flex-col">
-                <span class="text-sm font-medium">Job Details</span>
-                <span class="text-sm font-medium text-gray-500">Vitae sed mi luctus laoreet.</span>
-              </span>
-            </span>
-                    </a>
-                </div>
-            </li>
-
-            <li class="relative overflow-hidden lg:flex-1">
                 <div class="border border-gray-200 overflow-hidden lg:border-0">
                     <!-- Current Step -->
-                    <a href="home.jsp" aria-current="step">
+                    <a href="#" aria-current="step">
                             <span class="absolute top-0 left-0 h-full w-1 bg-indigo-600 lg:bottom-0 lg:top-auto lg:h-1 lg:w-full"
                                   aria-hidden="true"></span>
                         <span class="px-6 py-5 flex items-start text-sm font-medium lg:pl-9">
               <span class="flex-shrink-0">
                 <span class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-indigo-600">
-                  <span class="text-indigo-600">02</span>
+                  <span class="text-indigo-600">01</span>
                 </span>
               </span>
               <span class="mt-0.5 ml-4 flex min-w-0 flex-col">
@@ -186,7 +149,6 @@
             </span>
                     </a>
 
-                    <!-- Separator -->
                     <div class="absolute inset-0 top-0 left-0 hidden w-3 lg:block" aria-hidden="true">
                         <svg class="h-full w-full text-gray-300" viewBox="0 0 12 82" fill="none"
                              preserveAspectRatio="none">
@@ -196,17 +158,16 @@
                     </div>
                 </div>
             </li>
-
             <li class="relative overflow-hidden lg:flex-1">
                 <div class="border border-gray-200 overflow-hidden border-t-0 rounded-b-md lg:border-0">
                     <!-- Upcoming Step -->
-                    <a href="thirdStep.jsp" class="group">
+                    <a href="home.jsp" class="group">
                             <span class="absolute top-0 left-0 h-full w-1 bg-transparent group-hover:bg-gray-200 lg:bottom-0 lg:top-auto lg:h-1 lg:w-full"
                                   aria-hidden="true"></span>
                         <span class="px-6 py-5 flex items-start text-sm font-medium lg:pl-9">
               <span class="flex-shrink-0">
                 <span class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-300">
-                  <span class="text-gray-500">03</span>
+                  <span class="text-gray-500">02</span>
                 </span>
               </span>
               <span class="mt-0.5 ml-4 flex min-w-0 flex-col">
@@ -226,95 +187,91 @@
                     </div>
                 </div>
             </li>
+            <li class="relative overflow-hidden lg:flex-1">
+                <div class="border border-gray-200 overflow-hidden border-t-0 rounded-b-md lg:border-0">
+                    <!-- Upcoming Step -->
+                    <a href="thirdStep.jsp" class="group">
+                            <span class="absolute top-0 left-0 h-full w-1 bg-transparent group-hover:bg-gray-200 lg:bottom-0 lg:top-auto lg:h-1 lg:w-full"
+                                  aria-hidden="true"></span>
+                        <span class="px-6 py-5 flex items-start text-sm font-medium lg:pl-9">
+              <span class="flex-shrink-0">
+                <span class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-300">
+                  <span class="text-gray-500">03</span>
+                </span>
+              </span>
+              <span class="mt-0.5 ml-4 flex min-w-0 flex-col">
+                <span class="text-sm font-medium text-gray-500">Preview</span>
+                <span class="text-sm font-medium text-gray-500">Penatibus eu quis ante.</span>
+              </span>
+            </span>
+                    </a>
+                    <!-- Separator -->
+                    <div class="absolute inset-0 top-0 left-0 hidden w-3 lg:block" aria-hidden="true">
+                        <svg class="h-full w-full text-gray-300" viewBox="0 0 12 82" fill="none"
+                             preserveAspectRatio="none">
+                            <path d="M0.5 0V31L10.5 41L0.5 51V82" stroke="currentcolor"
+                                  vector-effect="non-scaling-stroke"></path>
+                        </svg>
+                    </div>
+                </div>
+            </li>
         </ol>
     </nav>
 </div>
 
-<%-- Sencond Section --%>
-<div id="sections_container">
-    <section class="w-full flex justify-center items-center">
-        <div class="w-[800px] bg-white pt-5 border-b-2 border-x-2 border-gray-300 p-6 rounded-b-md">
-            <div class="py-1">
-                <span class="px-1 text-sm text-gray-600">Enter Code Client</span>
-                <input placeholder="Enter first name" type="text"
-                       class="text-md block px-3 py-2 rounded-lg w-full
-                bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
-            </div>
-            <br>
-            <div id="client_check_buttons">
-                <input id="client_code_check_submit" type="button"
-                       class="border border-gray-700 bg-gray-700 text-white rounded-md px-4 py-2 m-2 text-center transition duration-500 ease select-none hover:bg-gray-800 focus:outline-none focus:shadow-outline"
-                       value="Check">
-                <input id="client_add_button" type="button" value="Ajouter" onclick="openModal()">
-            </div>
+<section class="w-full flex justify-center items-center " id="credit_simulation">
+    <div class="w-[800px] bg-white pt-5 border-b-2 border-x-2 border-gray-300 p-16 rounded-b-md">
+        <div id="myproject_field">
+            <label CLASS="font-bold uppercase" for="projet">Mon projet</label>
+            <select class="text-md block px-3 py-2 rounded-lg w-full
+                bg-white border-2 border-gray-300 placeholder-gray-600 focus:placeholder-gray-500 focus:bg-white"
+                    id="projet" name="projet">
+                <option value="OCCASION">Je finance mon véhicule d’occasion</option>
+                <option value="PRET_PERSONNEL">J’ai besoin d’argent</option>
+                <option value="REV">Je Gère mes imprévus</option>
+                <option value="CREDIT_AUTOMOBILE">Je finance mon véhicule neuf</option>
+                <option value="CREDIT_MENAGE">J’équipe ma maison</option>
+            </select>
         </div>
-    </section>
-</div>
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h2>Ajouter un client</h2>
-        <div class="container max-w-full md:py-9 px-6">
-            <div class="max-w-sm mx-auto px-6">
-                <div class="relative flex flex-wrap">
-                    <div class="w-full relative">
-                        <div class="mt-3">
-                            <div class="text-center font-bold text-xl text-black uppercase">
-                                Add Client
-                            </div>
-                            <form class="mt-3" action="hello-servlet">
-                                <div class="mx-auto max-w-lg">
-                                    <div class="py-1">
-                                        <span class="px-1 text-sm text-gray-600">code</span>
-                                        <input placeholder="Enter code" type="text"
-                                               class="text-md block px-3 py-2 rounded-lg w-full
-                bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
-                                    </div>
-                                    <div class="py-1">
-                                        <span class="px-1 text-sm text-gray-600">First Name</span>
-                                        <input placeholder="Enter first name" type="text"
-                                               class="text-md block px-3 py-2 rounded-lg w-full
-                bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
-                                    </div>
-                                    <div class="py-1">
-                                        <span class="px-1 text-sm text-gray-600">Last Name</span>
-                                        <input placeholder="Enter last name" type="email"
-                                               class="text-md block px-3 py-2 rounded-lg w-full
-                bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
-                                    </div>
-                                    <div class="py-1">
-                                        <span class="px-1 text-sm text-gray-600">Birth Date</span>
-                                        <input placeholder="Enter birth name" type="password" x-model="password"
-                                               class="text-md block px-3 py-2 rounded-lg w-full
-                bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
-                                    </div>
-                                    <div class="py-1">
-                                        <span class="px-1 text-sm text-gray-600">Phone number</span>
-                                        <input placeholder="Enter phone number" type="text"
-                                               class="text-md block px-3 py-2 rounded-lg w-full
-                bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
-                                    </div>
-                                    <div class="py-1">
-                                        <span class="px-1 text-sm text-gray-600">Address</span>
-                                        <input placeholder="Enter address" type="text"
-                                               class="text-md block px-3 py-2 rounded-lg w-full
-                bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
-                                    </div>
-                                    <button class="mt-5 text-lg font-semibold bg-gray-800 w-full text-white rounded-lg px-6 py-3 block shadow-xl hover:text-white hover:bg-black">
-                                        Register
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+        <div id="profession_field">
+            <label class="font-bold uppercase" for="profession">Je suis</label>
+            <select class="text-md block px-3 py-2 rounded-lg w-full
+                bg-white border-2 border-gray-300 placeholder-gray-600 focus:placeholder-gray-500 focus:bg-white"
+                    id="profession" name="profession">
+                <option value="SALARIE_PRIVE">Salarié du secteur privé</option>
+                <option value="SALARIE_PUBLIC">Fonctionnaire</option>
+                <option value="PROFESSION_LIBERALE">Profession libérale</option>
+                <option value="COMMERCANT">Commerçant</option>
+                <option value="ARTISAN">Artisan</option>
+                <option value="RETRAITE">Retraité</option>
+                <option value="AUTRE">Autres professions</option>
+            </select>
+        </div>
+        <div id="simulator-amount">
+            <label class="font-bold uppercase" for="amount_input">Montant (en DH)</label>
+            <div>
+                <input id="amount_input" type="number" class="bg-white" step="any" value="10000" min="5000"
+                       max="600000">
             </div>
+            <input id="amount_ranger" class="bg-white" type="range" min="5000" max="600000" step="1000"
+                   value="10000">
+        </div>
+        <div id="simulator-duration">
+            <label class="font-bold uppercase">Durée (en mois)</label>
+            <div>
+                <input id="duration_input" class="bg-white" type="number" min="12" max="120" step="6" value="12">
+            </div>
+            <input id="duration_ranger" class="bg-white" type="range" min="12" max="120" step="6" value="12">
+        </div>
+        <div id="simulator-mnthlypymnt">
+            <label class="font-bold uppercase">Mensualités (en DH)</label>
+            <div>
+                <input id="mnthlypymnt_input" class="bg-white" type="number">
+            </div>
+            <input id="mnthlypymnt_ranger" class="bg-white" type="range">
         </div>
     </div>
-</div>
-
+</section>
 </body>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="js/simulationCalculate.js"></script>
