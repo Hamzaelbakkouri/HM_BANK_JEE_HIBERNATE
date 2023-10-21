@@ -1,51 +1,81 @@
 package hm.bank.Model.DAO.IMPLEMANTATION;
 
+import hm.bank.Utils.JPAUtil;
 import hm.bank.Model.DAO.INTERFACES.ClientDAO;
 import hm.bank.Model.DTO.Client;
-import hm.bank.HibernateConfig.HibarenateConfiguration;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.hibernate.query.Query;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
+import jakarta.transaction.Transactional;
 
 import java.util.Optional;
 
 public class ClientIMPL implements ClientDAO {
 
-    private final HibarenateConfiguration configHibernate;
-    private final Session session;
+//    private final HibarenateConfiguration configHibernate;
+//    private final Session session;
+
+    private final EntityManager entityM;
 
     public ClientIMPL() {
-        configHibernate = new HibarenateConfiguration();
-        session = configHibernate.getSession();
+        entityM = JPAUtil.getEntityManagerFactory().createEntityManager();
     }
+
+    public ClientIMPL(EntityManager eM) {
+        this.entityM = eM;
+    }
+
+//
+//    public ClientIMPL() {
+//        configHibernate = new HibarenateConfiguration();
+//        session = configHibernate.getSession();
+//    }
 
     @Override
     public Optional<Client> insert(Client client) {
-        Optional<Client> client1 = Optional.empty();
+        EntityTransaction transaction = entityM.getTransaction();
         try {
-            Transaction transaction = session.beginTransaction();
-            session.save(client);
+            transaction.begin();
+            entityM.persist(client);
             transaction.commit();
-            System.out.println("Data inserted successfully.");
-            client1 = Optional.of(client);
+            return Optional.of(client);
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            configHibernate.closeSession();
+            return Optional.empty();
         }
-        return client1;
     }
 
     @Override
     public Optional<Client> getOne(String t) {
-        Optional<Client> client1 = Optional.empty();
+        EntityTransaction transaction = entityM.getTransaction();
         try {
-            Query query = session.createQuery("FROM Client WHERE code LIKE :codeValue ");
-            Client result = (Client) query.setParameter("codeValue", "%" + t + "%").uniqueResult();
-            client1 = Optional.of(result);
+            transaction.begin();
+            Client client = entityM.find(Client.class, t);
+            transaction.commit();
+            return Optional.ofNullable(client);
         } catch (Exception e) {
             e.printStackTrace();
+            return Optional.empty();
         }
-        return client1;
+    }
+
+    @Override
+    @Transactional
+    public Optional<Client> update(Client client) {
+        Client existingClient = entityM.find(Client.class, client.getCode());
+        EntityTransaction transaction = entityM.getTransaction();
+        if (existingClient != null) {
+            existingClient.setLastName(client.getLastName());
+            existingClient.setFirstName(client.getFirstName());
+            existingClient.setBirthDate(client.getBirthDate());
+            existingClient.setPhoneNumber(client.getPhoneNumber());
+            existingClient.setAddress(client.getAddress());
+
+            entityM.merge(existingClient);
+            transaction.commit();
+            return Optional.of(existingClient);
+        } else {
+            transaction.rollback();
+            return Optional.empty();
+        }
     }
 }

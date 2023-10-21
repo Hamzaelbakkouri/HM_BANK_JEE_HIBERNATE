@@ -156,7 +156,7 @@
             </li>
             <li class="relative overflow-hidden lg:flex-1">
                 <div class="border border-gray-200 overflow-hidden border-b-0 rounded-t-md lg:border-0">
-                    <a href="firstStep.jsp" class="group">
+                    <a href="home.jsp" class="group">
                             <span class="absolute top-0 left-0 h-full w-1 bg-transparent group-hover:bg-gray-200 lg:bottom-0 lg:top-auto lg:h-1 lg:w-full"
                                   aria-hidden="true"></span>
                         <span class="px-6 py-5 flex items-start text-sm font-medium">
@@ -181,7 +181,7 @@
             <li class="relative overflow-hidden lg:flex-1">
                 <div class="border border-gray-200 overflow-hidden lg:border-0">
                     <!-- Current Step -->
-                    <a href="home.jsp" aria-current="step">
+                    <a href="thirdStep.jsp" aria-current="step">
                             <span class="absolute top-0 left-0 h-full w-1 bg-indigo-600 lg:bottom-0 lg:top-auto lg:h-1 lg:w-full"
                                   aria-hidden="true"></span>
                         <span class="px-6 py-5 flex items-start text-sm font-medium lg:pl-9">

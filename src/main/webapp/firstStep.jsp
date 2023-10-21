@@ -201,7 +201,7 @@
               </span>
               <span class="mt-0.5 ml-4 flex min-w-0 flex-col">
                 <span class="text-sm font-medium text-gray-500">Preview</span>
-                <span class="text-sm font-medium text-gray-500">Penatibus eu quis ante.</span>
+                <span class="text-sm font-medium text-gray-500">Confirmation</span>
               </span>
             </span>
                     </a>

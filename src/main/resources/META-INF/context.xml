@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <Resource name="jdbc/MyDB" auth="Container" type="javax.sql.DataSource"
+              driverClassName="org.postgresql.Driver"
+              url="jdbc:postgresql://localhost:5000/HM_DB"
+              username="postgres" password="hamza2018" maxTotal="20" maxIdle="10" maxWaitMillis="-1" />
+</Context>
