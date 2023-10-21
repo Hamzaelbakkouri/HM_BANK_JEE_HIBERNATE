@@ -1,8 +1,8 @@
 drop table IF EXISTS creditrequests;
 drop table IF EXISTS clients;
-drop table IF EXISTS employe;
-drop table IF EXISTS person;
-drop table IF EXISTS agencie;
+drop table IF EXISTS employees;
+drop table IF EXISTS persons;
+drop table IF EXISTS agencies;
 drop table IF EXISTS statehistory;
 
 create table persons
@@ -18,14 +18,14 @@ CREATE TABLE clients
 (
     code    varchar(100) primary key,
     address varchar(100)
-)inherits (persons);
+) inherits (persons);
 
 create table employees
 (
     registrationNbr varchar(100) primary key,
     recruitmentDate date,
     email           varchar(100)
-)inherits (persons);
+) inherits (persons);
 
 create table agencies
 (
@@ -45,7 +45,9 @@ create table creditrequests
     amount         double precision,
     monthDuration  int,
     monthlyPayment double precision,
-    state          state default 'pending'
+    creationDate   date,
+    notes          varchar(200),
+    state          state
 );
 
 create table statehistory
