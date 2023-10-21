@@ -9,10 +9,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @MappedSuperclass
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Person {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
     @NonNull
     protected String firstName;
     @NonNull

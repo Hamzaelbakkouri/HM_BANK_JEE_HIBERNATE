@@ -1,7 +1,6 @@
 package hm.bank.Model.DTO;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,7 +11,9 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public final class Employee extends Person {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(unique=true)
     private String registrationNbr;
     private LocalDate recruitmentDate;
     private String email;
