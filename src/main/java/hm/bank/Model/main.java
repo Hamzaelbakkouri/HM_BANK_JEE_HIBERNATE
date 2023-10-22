@@ -31,12 +31,12 @@ public class main {
 //            Client result = (Client) query.setParameter("codeValue", "%code%").uniqueResult();
 //            System.out.println(result.getBirthDate());
 
-            EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
-            entityManager.getTransaction().begin();
+            //EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
+            //entityManager.getTransaction().begin();
 
-            LocalDate date = LocalDate.now();
-            Client client = new Client("hamza", "elbakkouri", date, "0625182280", "hay dchiar", "code56");
-            Employee employee = new Employee("hamza", "elbakkouri", date, "0625182280", "employee1", date, "elbakk.hamza.2018@gmail.com");
+            //LocalDate date = LocalDate.now();
+            //Client client = new Client("hamza", "elbakkouri", date, "0625182280", "hay dchiar", "code56");
+            //Employee employee = new Employee("hamza", "elbakkouri", date, "0625182280", "employee1", date, "elbakk.hamza.2018@gmail.com");
 //            Agency agency = new Agency("222", "hamza", "test", "0625182280");
 //            CreditRequest CreditRequest = new CreditRequest(2, agency, client, 555, 6666, 666, date, "the first desc", CreditState.Pending);
 //            CreditRequestService creditNew = new CreditRequestService();
@@ -54,6 +54,8 @@ public class main {
 //            session.save(client);
 //            transaction.commit();
 //            System.out.println("Data inserted successfully.");
+
+            System.out.println(new CreditRequestService().getAllCreditRequests().get(0).getCreationDate());
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -10,10 +10,9 @@ import java.time.LocalDate;
 @Entity
 @NoArgsConstructor
 public final class Employee extends Person {
-    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(unique=true)
+    @Id
     private String registrationNbr;
     private LocalDate recruitmentDate;
     private String email;

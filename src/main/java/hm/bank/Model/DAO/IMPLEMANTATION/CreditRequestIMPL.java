@@ -1,5 +1,7 @@
 package hm.bank.Model.DAO.IMPLEMANTATION;
 
+import hm.bank.Model.DAO.INTERFACES.CreditState;
+import hm.bank.Model.DTO.CreditRequestState;
 import hm.bank.Utils.JPAUtil;
 import hm.bank.Model.DAO.INTERFACES.CreditRequestDAO;
 import hm.bank.Model.DTO.CreditRequest;
@@ -7,6 +9,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -47,8 +50,50 @@ public class CreditRequestIMPL implements CreditRequestDAO {
     }
 
     @Override
-    public List<CreditRequest> getAllCreditRequest() {
-        return null;
+    public List<CreditRequest> getAllCreditRequests() {
+
+        List<CreditRequest> creditRequests = new ArrayList<>();
+
+        try {
+            creditRequests = this.entityM.createQuery("FROM CreditRequest ORDER BY nbr DESC", CreditRequest.class)
+                                    .getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return creditRequests;
+    }
+
+
+    @Override
+    public void updateCreditRequestState(String entityId, CreditState creditState){
+
+        CreditRequest creditRequest = entityM.find(CreditRequest.class, Integer.parseInt(entityId));
+
+        creditRequest.setState(creditState);
+
+        EntityTransaction transaction = entityM.getTransaction();
+        transaction.begin();
+        entityM.merge(creditRequest);
+        transaction.commit();
+
+    }
+
+    public List<CreditRequestState> getCreditRequestState(String nbr)
+    {
+        List<CreditRequestState> creditRequestStates = new ArrayList<>();
+
+        try {
+            creditRequestStates = entityM.createQuery("FROM CreditRequestState WHERE creditRequest.nbr = :creditRequest ORDER BY creationDate DESC", CreditRequestState.class)
+                                        .setParameter("creditRequest", nbr)
+                                        .getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return creditRequestStates;
+
+
     }
 
 
