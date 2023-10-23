@@ -1,33 +1,30 @@
 package hm.bank.Model.DAO.IMPLEMANTATION;
 
-import hm.bank.Model.DAO.INTERFACES.EmployeeDAO;
-import hm.bank.Model.DTO.Employee;
+import hm.bank.Model.DAO.INTERFACES.AgencyDAO;
+import hm.bank.Model.DTO.Agency;
 import hm.bank.Utils.JPAUtil;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
-import jakarta.transaction.Transactional;
 
 import java.util.Optional;
 
-public class EmployeeIMPL implements EmployeeDAO {
+public class AgencyIMPL implements AgencyDAO {
 
     private final EntityManager entityM;
 
-    public EmployeeIMPL() {
+    public AgencyIMPL() {
         entityM = JPAUtil.getEntityManagerFactory().createEntityManager();
     }
 
     @Override
-    @Transactional
-    public Optional<Employee> create(Employee employee) {
-
+    public Optional<Agency> create(Agency agency) {
         EntityTransaction transaction = entityM.getTransaction();
         try {
             transaction.begin();
-            entityM.persist(employee);
+            entityM.persist(agency);
             transaction.commit();
-            return Optional.of(employee);
+            return Optional.of(agency);
         } catch (Exception e) {
             e.printStackTrace();
             return Optional.empty();
@@ -35,17 +32,16 @@ public class EmployeeIMPL implements EmployeeDAO {
     }
 
     @Override
-    public Optional<Employee> findEmployeeById(String registrationNum) {
+    public Optional<Agency> findAgencyById(String agencynbr) {
         EntityTransaction transaction = entityM.getTransaction();
         try {
             transaction.begin();
-            String jpql = "SELECT e FROM Employee e WHERE e.registrationNbr = :registrationNum";
-            TypedQuery<Employee> query = entityM.createQuery(jpql, Employee.class);
-            query.setParameter("registrationNum", registrationNum);
+            String jpql = "SELECT e FROM Agency e WHERE e.code = :code";
+            TypedQuery<Agency> query = entityM.createQuery(jpql, Agency.class);
+            query.setParameter("code", agencynbr);
 
-            Employee resultList = query.getSingleResult();
+            Agency resultList = query.getSingleResult();
             transaction.commit();
-
             return Optional.ofNullable(resultList);
         } catch (Exception e) {
             e.printStackTrace();

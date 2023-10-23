@@ -8,23 +8,33 @@ import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
+@RequiredArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "creditrequests")
 public final class CreditRequest {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int nbr;
-    @ManyToOne
+    @NonNull
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "agency_code")
     private Agency agency;
+    @NonNull
     @OneToOne
+    @JoinColumn(name = "client_id")
     private Client client;
+    @NonNull
     private double amount;
+    @NonNull
     private int monthDuration;
+    @NonNull
     private double monthlyPayment;
+    @NonNull
     private LocalDate creationDate;
+    @NonNull
     private String notes;
+    @NonNull
+    @Enumerated(EnumType.STRING)
     private CreditState state;
 }

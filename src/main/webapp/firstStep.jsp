@@ -220,57 +220,67 @@
 </div>
 
 <section class="w-full flex justify-center items-center " id="credit_simulation">
-    <div class="w-[800px] bg-white pt-5 border-b-2 border-x-2 border-gray-300 p-16 rounded-b-md">
-        <div id="myproject_field">
-            <label CLASS="font-bold uppercase" for="projet">Mon projet</label>
-            <select class="text-md block px-3 py-2 rounded-lg w-full
+    <form action="getsimulation" method="post">
+        <div class="w-[800px] bg-white pt-5 border-b-2 border-x-2 border-gray-300 p-16 rounded-b-md">
+            <div id="myproject_field">
+                <label CLASS="font-bold uppercase" for="projet">Mon projet</label>
+                <select class="text-md block px-3 py-2 rounded-lg w-full
                 bg-white border-2 border-gray-300 placeholder-gray-600 focus:placeholder-gray-500 focus:bg-white"
-                    id="projet" name="projet">
-                <option value="OCCASION">Je finance mon véhicule d’occasion</option>
-                <option value="PRET_PERSONNEL">J’ai besoin d’argent</option>
-                <option value="REV">Je Gère mes imprévus</option>
-                <option value="CREDIT_AUTOMOBILE">Je finance mon véhicule neuf</option>
-                <option value="CREDIT_MENAGE">J’équipe ma maison</option>
-            </select>
-        </div>
-        <div id="profession_field">
-            <label class="font-bold uppercase" for="profession">Je suis</label>
-            <select class="text-md block px-3 py-2 rounded-lg w-full
+                        id="projet" name="projet">
+                    <option value="OCCASION">Je finance mon véhicule d’occasion</option>
+                    <option value="PRET_PERSONNEL">J’ai besoin d’argent</option>
+                    <option value="REV">Je Gère mes imprévus</option>
+                    <option value="CREDIT_AUTOMOBILE">Je finance mon véhicule neuf</option>
+                    <option value="CREDIT_MENAGE">J’équipe ma maison</option>
+                </select>
+            </div>
+            <div id="profession_field">
+                <label class="font-bold uppercase" for="profession">Je suis</label>
+                <select class="text-md block px-3 py-2 rounded-lg w-full
                 bg-white border-2 border-gray-300 placeholder-gray-600 focus:placeholder-gray-500 focus:bg-white"
-                    id="profession" name="profession">
-                <option value="SALARIE_PRIVE">Salarié du secteur privé</option>
-                <option value="SALARIE_PUBLIC">Fonctionnaire</option>
-                <option value="PROFESSION_LIBERALE">Profession libérale</option>
-                <option value="COMMERCANT">Commerçant</option>
-                <option value="ARTISAN">Artisan</option>
-                <option value="RETRAITE">Retraité</option>
-                <option value="AUTRE">Autres professions</option>
-            </select>
-        </div>
-        <div id="simulator-amount">
-            <label class="font-bold uppercase" for="amount_input">Montant (en DH)</label>
-            <div>
-                <input id="amount_input" type="number" class="bg-white" step="any" value="10000" min="5000"
-                       max="600000">
+                        id="profession" name="profession">
+                    <option value="SALARIE_PRIVE">Salarié du secteur privé</option>
+                    <option value="SALARIE_PUBLIC">Fonctionnaire</option>
+                    <option value="PROFESSION_LIBERALE">Profession libérale</option>
+                    <option value="COMMERCANT">Commerçant</option>
+                    <option value="ARTISAN">Artisan</option>
+                    <option value="RETRAITE">Retraité</option>
+                    <option value="AUTRE">Autres professions</option>
+                </select>
             </div>
-            <input id="amount_ranger" class="bg-white" type="range" min="5000" max="600000" step="1000"
-                   value="10000">
-        </div>
-        <div id="simulator-duration">
-            <label class="font-bold uppercase">Durée (en mois)</label>
-            <div>
-                <input id="duration_input" class="bg-white" type="number" min="12" max="120" step="6" value="12">
+            <div id="simulator-amount">
+                <label class="font-bold uppercase" for="amount_input">Montant (en DH)</label>
+                <div>
+                    <input id="amount_input" name="balance" type="number" class="bg-white" step="any" value="10000"
+                           min="5000"
+                           max="600000">
+                </div>
+                <input id="amount_ranger" class="bg-white" type="range" min="5000" max="600000" step="1000"
+                       value="10000">
             </div>
-            <input id="duration_ranger" class="bg-white" type="range" min="12" max="120" step="6" value="12">
-        </div>
-        <div id="simulator-mnthlypymnt">
-            <label class="font-bold uppercase">Mensualités (en DH)</label>
-            <div>
-                <input id="mnthlypymnt_input" class="bg-white" type="number">
+            <div id="simulator-duration">
+                <label class="font-bold uppercase">Durée (en mois)</label>
+                <div>
+                    <input id="duration_input" name="time" class="bg-white" type="number" min="12" max="120" step="6"
+                           value="12">
+                </div>
+                <input id="duration_ranger" class="bg-white" type="range" min="12" max="120" step="6" value="12">
             </div>
-            <input id="mnthlypymnt_ranger" class="bg-white" type="range">
+            <div id="simulator-mnthlypymnt">
+                <label class="font-bold uppercase">Mensualités (en DH)</label>
+                <div>
+                    <input id="mnthlypymnt_input" name="monthly_balance" type="number" class="bg-white" step="any"
+                           value="10000"
+                           min="5000"
+                           max="600000">
+                </div>
+                <input id="mnthlypymnt_ranger" class="bg-white" type="range">
+            </div>
+            <input id="client_code_check_submit" type="submit"
+                   class="border cursor-pointer border-gray-700 bg-gray-700 text-white rounded-md px-4 py-2 m-2 text-center transition duration-500 ease select-none hover:bg-gray-800 focus:outline-none focus:shadow-outline"
+                   value="Check">
         </div>
-    </div>
+    </form>
 </section>
 </body>
 <script src="https://cdn.tailwindcss.com"></script>

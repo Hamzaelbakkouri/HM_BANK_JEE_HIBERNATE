@@ -11,18 +11,18 @@ import java.util.Optional;
 
 @ApplicationScoped
 public class ClientService {
-    @Inject
+
     private ClientDAO clientDAO;
 
     public ClientService() {
         clientDAO = new ClientIMPL();
     }
 
-    public void createClient(Client client) throws Exception {
+    public Client createClient(Client client) throws Exception {
         if (client == null) {
             throw new Exception("Client cannot be null");
         } else {
-            clientDAO.insert(client).get();
+            return clientDAO.insert(client).get();
         }
     }
 
