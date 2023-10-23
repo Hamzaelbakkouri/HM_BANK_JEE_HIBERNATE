@@ -11,8 +11,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public final class Employee extends Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @Id
+    private int id; 
+    @Column(unique=true)
     private String registrationNbr;
     private LocalDate recruitmentDate;
     private String email;

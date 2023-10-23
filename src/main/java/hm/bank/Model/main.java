@@ -2,26 +2,17 @@ package hm.bank.Model;
 
 import Services.ClientService;
 import Services.CreditRequestService;
-import hm.bank.Model.DAO.IMPLEMANTATION.ClientIMPL;
-import hm.bank.Model.DAO.IMPLEMANTATION.EmployeeIMPL;
-import hm.bank.Model.DAO.INTERFACES.ClientDAO;
+import hm.bank.Model.DAO.IMPLEMANTATION.AgencyIMPL;
+import hm.bank.Model.DAO.INTERFACES.AgencyDAO;
 import hm.bank.Model.DAO.INTERFACES.CreditState;
-import hm.bank.Model.DAO.INTERFACES.EmployeeDAO;
 import hm.bank.Model.DTO.Agency;
 import hm.bank.Model.DTO.Client;
 import hm.bank.Model.DTO.CreditRequest;
 import hm.bank.Model.DTO.Employee;
-import hm.bank.Utils.JPAUtil;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
+import jakarta.servlet.http.HttpSession;
 
 import java.time.LocalDate;
 import java.util.Optional;
-
-import jakarta.persistence.EntityManager;
 
 
 public class main {
@@ -31,19 +22,14 @@ public class main {
 //            Client result = (Client) query.setParameter("codeValue", "%code%").uniqueResult();
 //            System.out.println(result.getBirthDate());
 
-            //EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
-            //entityManager.getTransaction().begin();
 
-            //LocalDate date = LocalDate.now();
-            //Client client = new Client("hamza", "elbakkouri", date, "0625182280", "hay dchiar", "code56");
-            //Employee employee = new Employee("hamza", "elbakkouri", date, "0625182280", "employee1", date, "elbakk.hamza.2018@gmail.com");
 //            Agency agency = new Agency("222", "hamza", "test", "0625182280");
-//            CreditRequest CreditRequest = new CreditRequest(2, agency, client, 555, 6666, 666, date, "the first desc", CreditState.Pending);
+//            CreditRequest CreditRequest = new CreditRequest(2, agency.get(), client, 555, 6666, 666, date, "the first desc", CreditState.Pending);
 //            CreditRequestService creditNew = new CreditRequestService();
 //            creditNew.CreateCreditRequest(CreditRequest);
 
-//            ClientService newClient = new ClientService();
-//            newClient.createClient(client);
+//            AgencyDAO agenctest = new AgencyIMPL();
+//            agenctest.create(agency);
 
 //            EmployeeDAO newEmployee = new EmployeeIMPL();
 //            Optional<Employee> employeeresult = newEmployee.findEmployeeById("employee1");
