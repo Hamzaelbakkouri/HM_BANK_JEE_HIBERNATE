@@ -1,3 +1,4 @@
+<%@ page import="hm.bank.Model.DTO.Client" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
@@ -208,64 +209,71 @@
         </ol>
     </nav>
 </div>
-
+<%
+    Client client = (Client) request.getAttribute("client");
+    String time = session.getAttribute("time").toString();
+    String balance = session.getAttribute("balance").toString();
+    String mb = session.getAttribute("mb").toString();
+%>
 <section class="w-full flex justify-center items-center mb-20" id="credit_simulation">
     <div class="w-[800px] bg-white pt-5 border-b-2 border-x-2 border-gray-300 p-16 rounded-b-md">
-        <form class="mt-3" action="">
+        <form class="mt-3" action="createcredit" method="post">
             <div class="mx-auto max-w-lg">
                 <div class="py-1">
                     <span class="px-1 text-sm text-gray-600">code</span>
-                    <input placeholder="Enter code" type="text"
+                    <input placeholder="Enter code" value="<%= client.getCode() %>" type="text"
                            class="text-md block px-3 py-2 rounded-lg w-full
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
                 </div>
                 <div class="py-1">
                     <span class="px-1 text-sm text-gray-600">First Name</span>
-                    <input placeholder="Enter first name" type="text"
+                    <input placeholder="Enter first name" value="<%= client.getFirstName() %>" type="text"
                            class="text-md block px-3 py-2 rounded-lg w-full
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
                 </div>
                 <div class="py-1">
                     <span class="px-1 text-sm text-gray-600">Last Name</span>
-                    <input placeholder="Enter last name" type="email"
+                    <input placeholder="Enter last name" value=" <%= client.getLastName() %>" type="email"
                            class="text-md block px-3 py-2 rounded-lg w-full
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
                 </div>
                 <div class="py-1">
                     <span class="px-1 text-sm text-gray-600">Birth Date</span>
-                    <input placeholder="Enter birth name" type="password" x-model="password"
+                    <input placeholder="Enter birth name" value="<%= client.getBirthDate() %>"
+                           type="date"
+                           x-model="date"
                            class="text-md block px-3 py-2 rounded-lg w-full
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
                 </div>
                 <div class="py-1">
                     <span class="px-1 text-sm text-gray-600">Phone number</span>
-                    <input placeholder="Enter phone number" type="text"
+                    <input placeholder="Enter phone number" value="<%= client.getPhoneNumber() %>" type="text"
                            class="text-md block px-3 py-2 rounded-lg w-full
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
                 </div>
                 <div class="py-1">
                     <span class="px-1 text-sm text-gray-600">Address</span>
-                    <input placeholder="Enter address" type="text"
+                    <input placeholder="Enter address" value="<%= client.getAddress() %>" type="text"
                            class="text-md block px-3 py-2 rounded-lg w-full
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
                 </div>
             </div>
             <div class="mx-auto max-w-lg">
                 <div class="py-1">
-                    <span class="px-1 text-sm text-gray-600">code</span>
-                    <input placeholder="Enter code" type="text"
+                    <span class="px-1 text-sm text-gray-600">Montant (EN DH)</span>
+                    <input placeholder="Montant" value="<%= balance %>" type="number"
                            class="text-md block px-3 py-2 rounded-lg w-full
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
                 </div>
                 <div class="py-1">
-                    <span class="px-1 text-sm text-gray-600">First Name</span>
-                    <input placeholder="Enter first name" type="text"
+                    <span class="px-1 text-sm text-gray-600">DURÉE (EN MOIS)</span>
+                    <input placeholder="DURÉE" value="<%= time %>" type="number"
                            class="text-md block px-3 py-2 rounded-lg w-full
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
                 </div>
                 <div class="py-1">
-                    <span class="px-1 text-sm text-gray-600">Last Name</span>
-                    <input placeholder="Enter last name" type="email"
+                    <span class="px-1 text-sm text-gray-600">MENSUALITÉS (EN DH)</span>
+                    <input placeholder="MENSUALITÉS" value="<%= mb %>" type="number"
                            class="text-md block px-3 py-2 rounded-lg w-full
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
                 </div>

@@ -5,6 +5,7 @@ import hm.bank.Model.DAO.INTERFACES.CreditRequestDAO;
 import hm.bank.Model.DTO.CreditRequest;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.PersistenceException;
 
 
 import java.util.List;
@@ -13,12 +14,8 @@ import java.util.Optional;
 public class CreditRequestIMPL implements CreditRequestDAO {
     private final EntityManager entityM;
 
-    public CreditRequestIMPL() {
+    public  CreditRequestIMPL() {
         entityM = JPAUtil.getEntityManagerFactory().createEntityManager();
-    }
-
-    public CreditRequestIMPL(EntityManager eM) {
-        this.entityM = eM;
     }
 
     @Override
@@ -26,10 +23,10 @@ public class CreditRequestIMPL implements CreditRequestDAO {
         EntityTransaction transaction = entityM.getTransaction();
         try {
             transaction.begin();
-            entityM.persist(creditRequest);
+            entityM.merge(creditRequest);
             transaction.commit();
             return Optional.of(creditRequest);
-        } catch (Exception e) {
+        } catch (PersistenceException e) {
             e.printStackTrace();
             return Optional.empty();
         }

@@ -234,19 +234,21 @@
 <div id="sections_container">
     <section class="w-full flex justify-center items-center">
         <div class="w-[800px] bg-white pt-5 border-b-2 border-x-2 border-gray-300 p-6 rounded-b-md">
-            <div class="py-1">
-                <span class="px-1 text-sm text-gray-600">Enter Code Client</span>
-                <input placeholder="Enter first name" type="text"
-                       class="text-md block px-3 py-2 rounded-lg w-full
+            <form action="checkclient" method="post">
+                <div class="py-1">
+                    <span class="px-1 text-sm text-gray-600">Enter Code Client</span>
+                        <input name="client" placeholder="Enter first name" type="text"
+                           class="text-md block px-3 py-2 rounded-lg w-full
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
-            </div>
-            <br>
-            <div id="client_check_buttons">
-                <input id="client_code_check_submit" type="button"
-                       class="border border-gray-700 bg-gray-700 text-white rounded-md px-4 py-2 m-2 text-center transition duration-500 ease select-none hover:bg-gray-800 focus:outline-none focus:shadow-outline"
-                       value="Check">
-                <input id="client_add_button" type="button" value="Ajouter" onclick="openModal()">
-            </div>
+                </div>
+                <br>
+                <div id="client_check_buttons">
+                    <input id="client_code_check_submit" type="submit"
+                           class="border border-gray-700 bg-gray-700 text-white rounded-md px-4 py-2 m-2 text-center transition duration-500 ease select-none hover:bg-gray-800 focus:outline-none focus:shadow-outline"
+                           value="Check">
+                    <input id="client_add_button" type="button" value="Ajouter" onclick="openModal()">
+                </div>
+            </form>
         </div>
     </section>
 </div>
@@ -264,45 +266,47 @@
                             <div class="text-center font-bold text-xl text-black uppercase">
                                 Add Client
                             </div>
-                            <form class="mt-3" action="hello-servlet">
+                            <form class="mt-3" action="/addclient" method="post">
                                 <div class="mx-auto max-w-lg">
                                     <div class="py-1">
                                         <span class="px-1 text-sm text-gray-600">code</span>
-                                        <input placeholder="Enter code" type="text"
+                                        <input placeholder="Enter code" name="code" type="text"
                                                class="text-md block px-3 py-2 rounded-lg w-full
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
                                     </div>
                                     <div class="py-1">
                                         <span class="px-1 text-sm text-gray-600">First Name</span>
-                                        <input placeholder="Enter first name" type="text"
+                                        <input placeholder="Enter first name" name="firstname" type="text"
                                                class="text-md block px-3 py-2 rounded-lg w-full
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
                                     </div>
                                     <div class="py-1">
                                         <span class="px-1 text-sm text-gray-600">Last Name</span>
-                                        <input placeholder="Enter last name" type="email"
+                                        <input placeholder="Enter last name" name="lastname" type="email"
                                                class="text-md block px-3 py-2 rounded-lg w-full
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
                                     </div>
                                     <div class="py-1">
                                         <span class="px-1 text-sm text-gray-600">Birth Date</span>
-                                        <input placeholder="Enter birth name" type="password" x-model="password"
+                                        <input placeholder="Enter birth name" name="date" type="password"
+                                               x-model="password"
                                                class="text-md block px-3 py-2 rounded-lg w-full
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
                                     </div>
                                     <div class="py-1">
                                         <span class="px-1 text-sm text-gray-600">Phone number</span>
-                                        <input placeholder="Enter phone number" type="text"
+                                        <input placeholder="Enter phone number" name="phonenumber" type="text"
                                                class="text-md block px-3 py-2 rounded-lg w-full
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
                                     </div>
                                     <div class="py-1">
                                         <span class="px-1 text-sm text-gray-600">Address</span>
-                                        <input placeholder="Enter address" type="text"
+                                        <input placeholder="Enter address" name="address" type="text"
                                                class="text-md block px-3 py-2 rounded-lg w-full
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
                                     </div>
-                                    <button class="mt-5 text-lg font-semibold bg-gray-800 w-full text-white rounded-lg px-6 py-3 block shadow-xl hover:text-white hover:bg-black">
+                                    <button type="submit"
+                                            class="mt-5 text-lg font-semibold bg-gray-800 w-full text-white rounded-lg px-6 py-3 block shadow-xl hover:text-white hover:bg-black">
                                         Register
                                     </button>
                                 </div>

@@ -1,10 +1,12 @@
 package hm.bank.Model.DAO.IMPLEMANTATION;
 
+import hm.bank.Model.DTO.Employee;
 import hm.bank.Utils.JPAUtil;
 import hm.bank.Model.DAO.INTERFACES.ClientDAO;
 import hm.bank.Model.DTO.Client;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 
 import java.util.Optional;
@@ -20,15 +22,7 @@ public class ClientIMPL implements ClientDAO {
         entityM = JPAUtil.getEntityManagerFactory().createEntityManager();
     }
 
-    public ClientIMPL(EntityManager eM) {
-        this.entityM = eM;
-    }
 
-//
-//    public ClientIMPL() {
-//        configHibernate = new HibarenateConfiguration();
-//        session = configHibernate.getSession();
-//    }
 
     @Override
     public Optional<Client> insert(Client client) {
@@ -45,13 +39,17 @@ public class ClientIMPL implements ClientDAO {
     }
 
     @Override
-    public Optional<Client> getOne(String t) {
+    public Optional<Client> getOne(String registrationNum) {
         EntityTransaction transaction = entityM.getTransaction();
         try {
             transaction.begin();
-            Client client = entityM.find(Client.class, t);
+            String jpql = "SELECT e FROM Client e WHERE e.code = :code";
+            TypedQuery<Client> query = entityM.createQuery(jpql, Client.class);
+            query.setParameter("code", registrationNum);
+
+            Client resultList = query.getSingleResult();
             transaction.commit();
-            return Optional.ofNullable(client);
+            return Optional.ofNullable(resultList);
         } catch (Exception e) {
             e.printStackTrace();
             return Optional.empty();
