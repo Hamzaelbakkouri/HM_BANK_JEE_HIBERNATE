@@ -11,10 +11,9 @@ import lombok.*;
 @Entity
 @Table(name = "clients")
 public final class Client extends Person {
-    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(unique = true)
+    @Id
     private String code;
     private String address;
 

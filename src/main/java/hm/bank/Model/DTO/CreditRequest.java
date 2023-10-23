@@ -16,14 +16,17 @@ public final class CreditRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int nbr;
+
     @NonNull
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "agency_code")
     private Agency agency;
     @NonNull
-    @OneToOne
-    @JoinColumn(name = "client_id")
+    @ManyToOne
+    @JoinColumn(name = "client_code")
     private Client client;
+
+
     @NonNull
     private double amount;
     @NonNull
@@ -34,6 +37,7 @@ public final class CreditRequest {
     private LocalDate creationDate;
     @NonNull
     private String notes;
+
     @NonNull
     @Enumerated(EnumType.STRING)
     private CreditState state;

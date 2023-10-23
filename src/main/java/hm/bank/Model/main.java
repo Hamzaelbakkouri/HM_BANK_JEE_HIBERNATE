@@ -22,14 +22,7 @@ public class main {
 //            Client result = (Client) query.setParameter("codeValue", "%code%").uniqueResult();
 //            System.out.println(result.getBirthDate());
 
-//            LocalDate date = LocalDate.now();
-//            Client client = new Client("hamza", "elbakkouri", date, "0625182280", "hay dchiar", "code56");
-//            client.setId(3);
 
-//            Client client = new ClientService().getClientByCode("code56");
-//            Optional<Agency> agency = new AgencyIMPL().findAgencyById("222");
-
-//            Employee employee = new Employee("hamza", "elbakkouri", date, "0625182280", "employee1", date, "elbakk.hamza.2018@gmail.com");
 //            Agency agency = new Agency("222", "hamza", "test", "0625182280");
 //            CreditRequest CreditRequest = new CreditRequest(2, agency.get(), client, 555, 6666, 666, date, "the first desc", CreditState.Pending);
 //            CreditRequestService creditNew = new CreditRequestService();
@@ -47,6 +40,8 @@ public class main {
 //            session.save(client);
 //            transaction.commit();
 //            System.out.println("Data inserted successfully.");
+
+            System.out.println(new CreditRequestService().getAllCreditRequests().get(0).getCreationDate());
 
         } catch (Exception e) {
             e.printStackTrace();

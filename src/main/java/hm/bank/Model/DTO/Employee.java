@@ -10,7 +10,6 @@ import java.time.LocalDate;
 @Entity
 @NoArgsConstructor
 public final class Employee extends Person {
-    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id; 
     @Column(unique=true)

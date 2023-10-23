@@ -1,7 +1,7 @@
 package hm.bank.Model.DAO.INTERFACES;
 
 public enum CreditState {
-    nonAccepted,
+    Refused,
     Pending,
     Accepted
 }
