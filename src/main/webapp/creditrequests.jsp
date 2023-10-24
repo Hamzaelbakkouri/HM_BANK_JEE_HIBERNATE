@@ -11,8 +11,8 @@
 <html>
 <head>
     <title>Title</title>
-    <script src="https://cdn.tailwindcss.com"></script>
 </head>
+    <script src="https://cdn.tailwindcss.com"></script>
 <body>
 <div class="bg-blue-500 py-4 px-8 text-white">
     <h1 class="text-2xl font-bold">Choose a Date and an Option</h1>

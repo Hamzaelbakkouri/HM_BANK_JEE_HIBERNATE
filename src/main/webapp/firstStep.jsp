@@ -5,6 +5,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="css/input_Range.css">
 </head>
+<script src="https://cdn.tailwindcss.com"></script>
 <body>
 <nav class="bg-gray-800">
     <div class="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
@@ -220,7 +221,7 @@
 </div>
 
 <section class="w-full flex justify-center items-center " id="credit_simulation">
-    <form action="getsimulation" method="post">
+    <form action="simulation" method="post">
         <div class="w-[800px] bg-white pt-5 border-b-2 border-x-2 border-gray-300 p-16 rounded-b-md">
             <div id="myproject_field">
                 <label CLASS="font-bold uppercase" for="projet">Mon projet</label>
@@ -283,6 +284,5 @@
     </form>
 </section>
 </body>
-<script src="https://cdn.tailwindcss.com"></script>
 <script src="js/simulationCalculate.js"></script>
 </html>

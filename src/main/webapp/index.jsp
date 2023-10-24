@@ -85,12 +85,8 @@
 <body>
 <form action="auth" method="post">
     <h3>HM BANK</h3>
-
     <label for="agency_code">Code Agence</label>
-    <input type="text" name="agency" placeholder="Code Agence" id="agency_code" required>
-
-    <label for="mtrcl">Matricule</label>
-    <input type="text" name="code" placeholder="Matricule" id="mtrcl" required>
+    <input type="text" name="code" placeholder="Code Agence" id="agency_code" required>
 
     <button type="submit">Log In</button>
 </form>

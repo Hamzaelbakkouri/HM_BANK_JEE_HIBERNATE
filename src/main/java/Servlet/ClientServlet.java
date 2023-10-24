@@ -28,12 +28,17 @@ public class ClientServlet extends HttpServlet {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+                break;
             case "/checkclient":
                 try {
                     CheckIsClient(request, response);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+                break;
+            default:
+                System.out.println("not found");
+                break;
         }
     }
 
@@ -56,13 +61,12 @@ public class ClientServlet extends HttpServlet {
     private void CheckIsClient(HttpServletRequest request, HttpServletResponse response) throws Exception {
         HttpSession session = request.getSession();
         String code = request.getParameter("client");
-        System.out.println(code);
         Client client = this.clientService.getClientByCode(code);
         if (client != null) {
             session.setAttribute("client", client);
-            request.getRequestDispatcher("/thirdStep.jsp").forward(request, response);
+            request.getRequestDispatcher("thirdStep.jsp").forward(request, response);
         } else {
-            request.getRequestDispatcher("/home.jsp").forward(request, response);
+            request.getRequestDispatcher("home.jsp").forward(request, response);
         }
     }
 

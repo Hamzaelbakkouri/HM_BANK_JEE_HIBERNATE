@@ -23,9 +23,8 @@ public final class CreditRequest {
     private Agency agency;
     @NonNull
     @ManyToOne
-    @JoinColumn(name = "client_code")
+    @JoinColumn(name = "client_id")
     private Client client;
-
 
     @NonNull
     private double amount;

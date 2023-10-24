@@ -23,7 +23,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@WebServlet(urlPatterns = {"/getsimulation"})
+@WebServlet(urlPatterns = {"/simulation", "/createcredit", "/getcreditslist"})
 public class CreditRequestServlet extends HttpServlet {
     CreditRequestService creditRequestService;
 
@@ -36,32 +36,45 @@ public class CreditRequestServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getServletPath();
         switch (action) {
-            case "/getsimulation":
+            case "/simulation":
                 getSimulation(req, resp);
+                break;
             case "/createcredit":
                 createSimulation(req, resp);
-          case "/getCreditsList":
-                creditsList(req,resp);
+                break;
+            case "/getcreditslist":
+                creditsList(req, resp);
+                break;
+            default:
+                System.out.println("not found");
+                break;
         }
     }
 
-    private void getSimulation(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        String time = request.getParameter("time");
-        String balance = request.getParameter("balance");
-        String monthly_balance = request.getParameter("monthly_balance");
-
-        session.setAttribute("time", time);
-        session.setAttribute("balance", balance);
-        session.setAttribute("mb", monthly_balance);
-        request.getRequestDispatcher("/home.jsp").forward(request, response);
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doGet(req, resp);
     }
 
-    private void createSimulation(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void getSimulation(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        double balance = (double) session.getAttribute("balance");
+        int time = Integer.parseInt(request.getParameter("time"));
+        float balance = Float.parseFloat(request.getParameter("balance"));
+        float monthly_balance = Float.parseFloat(request.getParameter("monthly_balance"));
+
+            session.setAttribute("time", time);
+            session.setAttribute("balance", balance);
+            session.setAttribute("mb", monthly_balance);
+            request.getRequestDispatcher("home.jsp").forward(request, response);
+
+//        request.getRequestDispatcher("firstStep.jsp").forward(request, response);
+    }
+
+    public void createSimulation(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
         int time = (int) session.getAttribute("time");
-        double monthly_balance = (double) session.getAttribute("mb");
+        float balance = (Float) session.getAttribute("balance");
+        float monthly_balance = (Float) session.getAttribute("mb");
         Client client = (Client) session.getAttribute("client");
         Agency agency = (Agency) session.getAttribute("agency");
         String notes = request.getParameter("notes");
@@ -69,29 +82,26 @@ public class CreditRequestServlet extends HttpServlet {
         CreditRequest CreditRequest = new CreditRequest(agency, client, balance, time, monthly_balance, date, notes, CreditState.Pending);
         CreditRequest isInserted = this.creditRequestService.CreateCreditRequest(CreditRequest);
         if (isInserted != null) {
-            request.setAttribute("message", "credit inserted successfully");
-            request.getRequestDispatcher("/home.jsp").forward(request, response);
+//            request.setAttribute("message", "credit inserted successfully");
+            request.getRequestDispatcher("home.jsp").forward(request, response);
         }
-        request.getRequestDispatcher("/home.jsp").forward(request, response);
+        request.getRequestDispatcher("home.jsp").forward(request, response);
     }
-  
-  private void creditsList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    if(req.getParameter("nbr")==null) {
+
+    public void creditsList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if (req.getParameter("nbr") == null) {
 
             List<CreditRequest> creditRequests = new CreditRequestService().getAllCreditRequests();
 
 
-
-            if(req.getParameter("crreqstate")!=null)
-            {
+            if (req.getParameter("crreqstate") != null) {
                 creditRequests = creditRequests.stream()
                         .filter(creditRequest -> creditRequest.getState().name().equals(req.getParameter("crreqstate")))
                         .collect(Collectors.toList());
 
             }
 
-            if(req.getParameter("creationdate")!=null)
-            {
+            if (req.getParameter("creationdate") != null) {
                 creditRequests = creditRequests.stream()
                         .filter(creditRequest -> creditRequest.getCreationDate().equals(LocalDate.parse(req.getParameter("creationdate"), DateTimeFormatter.ofPattern("yyyy-MM-dd"))))
                         .collect(Collectors.toList());
@@ -103,48 +113,33 @@ public class CreditRequestServlet extends HttpServlet {
 
             req.getRequestDispatcher("creditrequests.jsp").forward(req, resp);
 
-        }
-        else
-        {
+        } else {
 
-            if(req.getParameter("action")==null)
-            {
+            if (req.getParameter("action") == null) {
                 List<CreditRequestState> creditRequestStates = new CreditRequestService().getCreditRequestHistory(req.getParameter("nbr"));
 
-                //resp.setContentType("text/html");
-                //resp.getWriter().println("<html><head><title>Hello, World</title></head><body><h1>"+creditRequestStates.size()+"</h1></body></html>");
 
-
-                req.setAttribute("items",creditRequestStates);
+                req.setAttribute("items", creditRequestStates);
                 req.getRequestDispatcher("creditrequesthistory.jsp").forward(req, resp);
 
-            }
-            else
-            {
-                if (req.getParameter("action").equals("accept"))
-                {
+            } else {
+                if (req.getParameter("action").equals("accept")) {
                     new CreditRequestService().acceptCreditRequest(req.getParameter("nbr"));
 
-                }
-                else
-                {
+                } else {
                     new CreditRequestService().refuseCreditRequest(req.getParameter("nbr"));
 
                 }
 
                 List<CreditRequest> creditRequests = new CreditRequestService().getAllCreditRequests();
 
-                req.setAttribute("creditRequests",creditRequests);
+                req.setAttribute("creditRequests", creditRequests);
 
                 req.getRequestDispatcher("creditrequests.jsp").forward(req, resp);
 
             }
 
         }
-  }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doGet(req, resp);
     }
+
 }

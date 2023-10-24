@@ -6,7 +6,6 @@
     <persistence-unit name="PERSISTENCE">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <!-- <non-jta-data-source>java:comp/env/jdbc/MyDB</non-jta-data-source> -->
-        <class>hm.bank.Model.DTO.Person</class>
         <class>hm.bank.Model.DTO.Employee</class>
         <class>hm.bank.Model.DTO.Client</class>
         <class>hm.bank.Model.DTO.Agency</class>
@@ -18,9 +17,9 @@
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
 
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/bankhm"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5000/HM_DB"/>
             <property name="jakarta.persistence.jdbc.user" value="postgres"/>
-            <property name="jakarta.persistence.jdbc.password" value="1992"/>
+            <property name="jakarta.persistence.jdbc.password" value="hamza2018"/>
         </properties>
     </persistence-unit>
 </persistence>

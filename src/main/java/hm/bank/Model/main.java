@@ -23,13 +23,18 @@ public class main {
 //            System.out.println(result.getBirthDate());
 
 
-//            Agency agency = new Agency("222", "hamza", "test", "0625182280");
+//            Agency agency = new Agency("555", "hamza", "test", "0625182280");
 //            CreditRequest CreditRequest = new CreditRequest(2, agency.get(), client, 555, 6666, 666, date, "the first desc", CreditState.Pending);
 //            CreditRequestService creditNew = new CreditRequestService();
 //            creditNew.CreateCreditRequest(CreditRequest);
 
 //            AgencyDAO agenctest = new AgencyIMPL();
 //            agenctest.create(agency);
+//            LocalDate date = LocalDate.now();
+//            Client client = new Client("hamza", "elbakkouri", date, "0625182280", "hay dchiar", "code56");
+//
+//            ClientService clientService = new ClientService();
+//            clientService.createClient(client);
 
 //            EmployeeDAO newEmployee = new EmployeeIMPL();
 //            Optional<Employee> employeeresult = newEmployee.findEmployeeById("employee1");
@@ -41,7 +46,6 @@ public class main {
 //            transaction.commit();
 //            System.out.println("Data inserted successfully.");
 
-            System.out.println(new CreditRequestService().getAllCreditRequests().get(0).getCreationDate());
 
         } catch (Exception e) {
             e.printStackTrace();

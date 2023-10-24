@@ -18,26 +18,26 @@ public class AuthService {
     //    @Inject
     private AgencyDAO agencyDAO;
 
-    private EmployeeDAO employeeDAO;
+//    private EmployeeDAO employeeDAO;
 
     public AuthService() {
-        this.employeeDAO = new EmployeeIMPL();
+//        this.employeeDAO = new EmployeeIMPL();
         this.agencyDAO = new AgencyIMPL();
     }
 
-    public Employee getEmployee(String code) throws Exception {
-        if (code.isEmpty()) {
-            throw new Exception("Client code cannot be empty or less than zero");
-        } else {
-            return employeeDAO.findEmployeeById(code).orElse(null);
-        }
-    }
+//    public Employee getEmployee(String code) throws Exception {
+//        if (code.isEmpty()) {
+//            throw new Exception("Client code cannot be empty or less than zero");
+//        } else {
+//            return employeeDAO.findEmployeeById(code).orElse(null);
+//        }
+//    }
 
     public Agency getAgency(String code) throws Exception {
-        if (code.isEmpty()) {
-            throw new Exception("Client code cannot be empty or less than zero");
-        } else {
+        try {
             return agencyDAO.findAgencyById(code).orElse(null);
+        } catch (Exception e) {
+            throw new Exception("Client code cannot be empty or less than zero");
         }
     }
 }

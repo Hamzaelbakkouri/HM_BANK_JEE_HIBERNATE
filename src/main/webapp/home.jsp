@@ -5,6 +5,7 @@
     <title>HM--BANK</title>
     <link rel="stylesheet" href="css/home.css">
 </head>
+<script src="https://cdn.tailwindcss.com"></script>
 <body>
 <nav class="bg-gray-800">
     <div class="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
@@ -237,7 +238,7 @@
             <form action="checkclient" method="post">
                 <div class="py-1">
                     <span class="px-1 text-sm text-gray-600">Enter Code Client</span>
-                        <input name="client" placeholder="Enter first name" type="text"
+                    <input name="client" placeholder="Enter first name" type="text"
                            class="text-md block px-3 py-2 rounded-lg w-full
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
                 </div>
@@ -320,6 +321,5 @@
 </div>
 
 </body>
-<script src="https://cdn.tailwindcss.com"></script>
 <script src="js/simulationCalculate.js"></script>
 </html>

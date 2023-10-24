@@ -11,8 +11,8 @@
 <html>
 <head>
     <title>Title</title>
-    <script src="https://cdn.tailwindcss.com"></script>
 </head>
+    <script src="https://cdn.tailwindcss.com"></script>
 <body>
 <!--Follow link for animation in action https://play.tailwindcss.com/IpRdROqEoQ -->
 <div class="bg-gray-50 min-h-screen flex items-center justify-center px-16">

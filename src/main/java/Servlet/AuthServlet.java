@@ -26,24 +26,17 @@ public class AuthServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-
-//        String code = req.getParameter("code");
-        String agencyparam = req.getParameter("agency");
+        String agencyparam = req.getParameter("code");
         try {
-//            Employee employee = this.authservice.getEmployee(code);
-//            if (employee != null) {
-//                session.setAttribute("employee", employee);
-//            }
             Agency agency = this.authservice.getAgency(agencyparam);
             if (agency != null) {
                 session.setAttribute("agency", agency);
             }
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
-        req.getRequestDispatcher("/firstStep.jsp").forward(req, resp);
+        req.getRequestDispatcher("firstStep.jsp").forward(req, resp);
     }
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doGet(req, resp);
