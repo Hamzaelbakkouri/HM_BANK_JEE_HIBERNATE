@@ -31,22 +31,20 @@ public class main {
 
 //LocalDate date = LocalDate.now();
 //Client client = new Client("Mustapha", "FATIHI", date, "0650813123", "client111", "safi");
-//ClientIMPL clientIMPL = new ClientIMPL();
-//clientIMPL.insert(client);
+//ClientService clientServ = new ClientService();
+//clientServ.createClient(client);
 
-Agency agency = new Agency();
-agency.setCode("111");
+// Agency agency = new Agency("code2","mustafa","hay youcode","0625182280");
 
-Client client = new Client();
-client.setCode("client111");
-client.setId(1);
+//Client client = new Client();
+//client.setCode("client111");
+//client.setId(1);
 
 
-CreditRequest creditRequest = new CreditRequest(agency, client, 10000, 10, 1000, LocalDate.now(), "Notes", CreditState.Pending);
+//CreditRequest creditRequest = new CreditRequest(agency, client, 10000, 10, 1000, LocalDate.now(), "Notes", CreditState.Pending);
 
-CreditRequestIMPL creditRequestIMPL = new CreditRequestIMPL();
-creditRequestIMPL.insert(creditRequest);
-
+//CreditRequestIMPL creditRequestIMPL = new CreditRequestIMPL();
+//creditRequestIMPL.insert(creditRequest);
 
 
 //            EmployeeDAO newEmployee = new EmployeeIMPL();

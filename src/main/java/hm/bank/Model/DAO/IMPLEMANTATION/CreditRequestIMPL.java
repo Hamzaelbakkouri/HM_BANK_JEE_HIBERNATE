@@ -53,7 +53,7 @@ public class CreditRequestIMPL implements CreditRequestDAO {
 
         try {
             creditRequests = this.entityM.createQuery("FROM CreditRequest ORDER BY nbr DESC", CreditRequest.class)
-                                    .getResultList();
+                                          .getResultList();
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -23,7 +23,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@WebServlet(urlPatterns = {"/simulation", "/createcredit", "/getcreditslist"})
+@WebServlet(urlPatterns = {"/simulation", "/createcredit", "/creditrequests"})
 public class CreditRequestServlet extends HttpServlet {
     CreditRequestService creditRequestService;
 
@@ -42,7 +42,7 @@ public class CreditRequestServlet extends HttpServlet {
             case "/createcredit":
                 createSimulation(req, resp);
                 break;
-            case "/getcreditslist":
+            case "/creditrequests":
                 creditsList(req, resp);
                 break;
             default:
@@ -82,7 +82,7 @@ public class CreditRequestServlet extends HttpServlet {
         CreditRequest CreditRequest = new CreditRequest(agency, client, balance, time, monthly_balance, date, notes, CreditState.Pending);
         CreditRequest isInserted = this.creditRequestService.CreateCreditRequest(CreditRequest);
         if (isInserted != null) {
-//            request.setAttribute("message", "credit inserted successfully");
+//          request.setAttribute("message", "credit inserted successfully");
             request.getRequestDispatcher("home.jsp").forward(request, response);
         }
         request.getRequestDispatcher("home.jsp").forward(request, response);
