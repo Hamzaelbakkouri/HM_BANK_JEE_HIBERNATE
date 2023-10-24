@@ -24,7 +24,7 @@ public final class CreditRequest {
 
     @NonNull
     @ManyToOne
-    @JoinColumn(name = "client_code")
+    @JoinColumn(name = "client_id")
     private Client client;
 
     @NonNull

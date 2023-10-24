@@ -6,6 +6,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="css/input_Range.css">
 </head>
+<script src="https://cdn.tailwindcss.com"></script>
 <body>
 <nav class="bg-gray-800">
     <div class="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
@@ -210,7 +211,7 @@
     </nav>
 </div>
 <%
-    Client client = (Client) request.getAttribute("client");
+    Client client = (Client) session.getAttribute("client");
     String time = session.getAttribute("time").toString();
     String balance = session.getAttribute("balance").toString();
     String mb = session.getAttribute("mb").toString();
@@ -233,7 +234,7 @@
                 </div>
                 <div class="py-1">
                     <span class="px-1 text-sm text-gray-600">Last Name</span>
-                    <input placeholder="Enter last name" value=" <%= client.getLastName() %>" type="email"
+                    <input placeholder="Enter last name" value=" <%= client.getLastName() %>" type="text"
                            class="text-md block px-3 py-2 rounded-lg w-full
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
                 </div>
@@ -277,6 +278,12 @@
                            class="text-md block px-3 py-2 rounded-lg w-full
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
                 </div>
+                <div class="py-1">
+                    <span class="px-1 text-sm text-gray-600">Ecrit des Notes</span>
+                    <textarea name="notes" placeholder="MENSUALITÉS" type="text"
+                              class="text-md block px-3 py-2 rounded-lg w-full
+                bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none"></textarea>
+                </div>
             </div>
             <button type="submit"
                     class="mt-5 text-lg font-semibold bg-gray-800 w-full text-white rounded-lg px-6 py-3 block shadow-xl hover:text-white hover:bg-black">
@@ -287,6 +294,5 @@
     </div>
 </section>
 </body>
-<script src="https://cdn.tailwindcss.com"></script>
 <script src="js/simulationCalculate.js"></script>
 </html>

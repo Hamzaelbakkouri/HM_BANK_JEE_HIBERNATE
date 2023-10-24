@@ -1,9 +1,9 @@
-drop table IF EXISTS creditrequests;
+drop table IF EXISTS statehistory;
 drop table IF EXISTS clients;
 drop table IF EXISTS employee;
 drop table IF EXISTS persons;
 drop table IF EXISTS agencies;
-drop table IF EXISTS statehistory;
+drop table IF EXISTS creditrequest;
 
 create table persons
 (

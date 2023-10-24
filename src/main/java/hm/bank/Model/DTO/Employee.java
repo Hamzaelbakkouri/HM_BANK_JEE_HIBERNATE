@@ -1,32 +1,26 @@
 package hm.bank.Model.DTO;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
-@Getter
-@Setter
+@Data
 @Entity
 @NoArgsConstructor
-@Table(name = "employees")
 public final class Employee extends Person {
-
-    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    @Column(unique=true)
+    @Id
     private String registrationNbr;
-
     private LocalDate recruitmentDate;
-
     private String email;
 
-    public Employee(String firstName, String lastName, LocalDate birthDate, String phoneNumber, String registrationNbr,LocalDate recruitmentDate) {
-        super(firstName, lastName, birthDate, phoneNumber);
-        setRegistrationNbr(registrationNbr);
-        setRecruitmentDate(recruitmentDate);
+    public Employee(String firstname, String lastname, LocalDate dateOfbirth, String phonenumber, String registrationnumber, LocalDate recruitmentdate, String Email) {
+        super(firstname, lastname, dateOfbirth, phonenumber);
+        setEmail(Email);
+        setRecruitmentDate(recruitmentdate);
+        setRegistrationNbr(registrationnumber);
     }
-
 }

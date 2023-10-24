@@ -2,6 +2,7 @@ package Servlet;
 
 import Services.AuthService;
 import hm.bank.Model.DTO.Agency;
+import hm.bank.Model.DTO.Employee;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -24,26 +25,18 @@ public class AuthServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         HttpSession session = req.getSession();
-
-        String agencyparam = req.getParameter("agency");
-
+        String agencyparam = req.getParameter("code");
         try {
-
             Agency agency = this.authservice.getAgency(agencyparam);
-
             if (agency != null) {
                 session.setAttribute("agency", agency);
             }
-
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
-
-        req.getRequestDispatcher("/firstStep.jsp").forward(req, resp);
+        req.getRequestDispatcher("firstStep.jsp").forward(req, resp);
     }
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doGet(req, resp);

@@ -4,8 +4,8 @@
 <html>
 <head>
     <title>Title</title>
-    <script src="https://cdn.tailwindcss.com"></script>
 </head>
+    <script src="https://cdn.tailwindcss.com"></script>
 <body>
 <div class="bg-gray-200 py-4 px-8 text-white">
 
