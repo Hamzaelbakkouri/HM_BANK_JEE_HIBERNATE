@@ -1,11 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: yc
-  Date: 19/10/2023
-  Time: 19:39
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
@@ -14,20 +7,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-<div class="bg-blue-500 py-4 px-8 text-white">
-    <h1 class="text-2xl font-bold">Choose a Date and an Option</h1>
+<div class="bg-gray-200 py-4 px-8 text-white">
 
-    <!-- Date Input -->
-    <input type="date" class="block mt-4 p-2 border rounded-md" id="creationDate">
+    <input type="date" class="mt-4 p-2 border rounded-md text-black" id="creationDate">
 
-    <!-- Select Element -->
-    <select class="block mt-4 p-2 border rounded-md" id="crReqState">
+    <select class="bg-white mt-4 p-2 border rounded-md text-black" id="crReqState">
         <option value="Pending">En cours</option>
         <option value="Accepted">Acceptees</option>
         <option value="Refused">Refusees</option>
     </select>
 
-    <button class="bg-white text-blue-500 mt-4 py-2 px-4 rounded-md hover:bg-blue-100" id="filterCrs">
+    <button class="bg-white text-black  mt-4 py-2 px-4 rounded-md hover:bg-gray-100" id="filterCrs">
         Envoyer
     </button>
 </div>
@@ -36,7 +26,17 @@
         <c:forEach items="${creditRequests}" var="item">
             <!-- start  -->
             <div class="bg-gray-100 mx-auto border-gray-500 border rounded-sm text-gray-700 mb-0.5 h-30">
-                <div class="flex p-3 border-l-8 border-yellow-600">
+                <c:choose>
+                    <c:when test="${item.getState().name().equals(\"Pending\")}">
+                        <div class="flex p-3 border-l-8 border-yellow-600">
+                    </c:when>
+                    <c:when test="${item.getState().name().equals(\"Accepted\")}">
+                        <div class="flex p-3 border-l-8 border-green-600">
+                        </c:when>
+                    <c:otherwise>
+                            <div class="flex p-3 border-l-8 border-red-600">
+                    </c:otherwise>
+                </c:choose>
                     <div class="space-y-1 border-r-2 pr-3">
                         <div class="text-sm leading-5 font-semibold"><span class="text-xs leading-4 font-normal text-gray-500"> Numéro #</span> ${item.getNbr()}</div>
                         <div class="text-sm leading-5 font-semibold"><span class="text-xs leading-4 font-normal text-gray-500 pr"> Agence #</span> ${item.getAgency().getCode()}</div>
@@ -68,19 +68,19 @@
                     </c:if>
                     <div>
                             <c:choose>
-                                <c:when test="${item.getState().name().equals(\"pending\")}">
+                                <c:when test="${item.getState().name().equals(\"Pending\")}">
                                     <div class="ml-3 my-5 bg-yellow-600 p-1 w-20">
-                                        <div class="uppercase text-xs leading-4 font-semibold text-center text-yellow-100">${item.getState().name()}</div>
+                                        <div class="uppercase text-xs leading-4 font-semibold text-center text-white">${item.getState().name()}</div>
                                     </div>
                                 </c:when>
-                                <c:when test="${item.getState().name().equals(\"accepted\")}">
+                                <c:when test="${item.getState().name().equals(\"Accepted\")}">
                                     <div class="ml-3 my-5 bg-green-600 p-1 w-20">
-                                        <div class="uppercase text-xs leading-4 font-semibold text-center text-yellow-100">${item.getState().name()}</div>
+                                        <div class="uppercase text-xs leading-4 font-semibold text-center text-white">${item.getState().name()}</div>
                                     </div>
                                 </c:when>
                                 <c:otherwise>
                                     <div class="ml-3 my-5 bg-red-600 p-1 w-20">
-                                        <div class="uppercase text-xs leading-4 font-semibold text-center text-yellow-100">${item.getState().name()}</div>
+                                        <div class="uppercase text-xs leading-4 font-semibold text-center text-white">${item.getState().name()}</div>
                                     </div>
                                 </c:otherwise>
                             </c:choose>

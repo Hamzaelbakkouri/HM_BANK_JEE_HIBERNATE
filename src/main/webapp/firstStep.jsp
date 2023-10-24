@@ -18,9 +18,9 @@
                 </div>
                 <div class="hidden lg:ml-6 lg:block">
                     <div class="flex space-x-4">
-                        <a href="#"
-                           class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">Credit Request
-                            List</a>
+                        <a href="http://localhost:8080/HM_BANK_JEE-1.0-SNAPSHOT/creditrequests"
+                           class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">Credit Requests
+                        </a>
                         <a href="#"
                            class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">List</a>
                         <a href="firstStep.jsp"
@@ -143,8 +143,7 @@
                 </span>
               </span>
               <span class="mt-0.5 ml-4 flex min-w-0 flex-col">
-                <span class="text-sm font-medium text-indigo-600">Application form</span>
-                <span class="text-sm font-medium text-gray-500">Cursus semper viverra.</span>
+                <span class="text-sm font-medium text-indigo-600">Simulation de crédit</span>
               </span>
             </span>
                     </a>
@@ -171,8 +170,7 @@
                 </span>
               </span>
               <span class="mt-0.5 ml-4 flex min-w-0 flex-col">
-                <span class="text-sm font-medium text-gray-500">Preview</span>
-                <span class="text-sm font-medium text-gray-500">Penatibus eu quis ante.</span>
+                <span class="text-sm font-medium text-gray-500">Client</span>
               </span>
             </span>
                     </a>
@@ -200,7 +198,6 @@
                 </span>
               </span>
               <span class="mt-0.5 ml-4 flex min-w-0 flex-col">
-                <span class="text-sm font-medium text-gray-500">Preview</span>
                 <span class="text-sm font-medium text-gray-500">Confirmation</span>
               </span>
             </span>

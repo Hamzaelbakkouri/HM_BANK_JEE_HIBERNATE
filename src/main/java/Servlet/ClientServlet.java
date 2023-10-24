@@ -11,7 +11,6 @@ import jakarta.servlet.annotation.*;
 
 @WebServlet(urlPatterns = {"/addclient", "/checkclient"})
 public class ClientServlet extends HttpServlet {
-
     ClientService clientService;
 
     public void init() {
@@ -56,7 +55,6 @@ public class ClientServlet extends HttpServlet {
     private void CheckIsClient(HttpServletRequest request, HttpServletResponse response) throws Exception {
         HttpSession session = request.getSession();
         String code = request.getParameter("client");
-        System.out.println(code);
         Client client = this.clientService.getClientByCode(code);
         if (client != null) {
             session.setAttribute("client", client);

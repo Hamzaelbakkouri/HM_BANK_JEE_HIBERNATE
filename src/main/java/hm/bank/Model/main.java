@@ -3,6 +3,8 @@ package hm.bank.Model;
 import Services.ClientService;
 import Services.CreditRequestService;
 import hm.bank.Model.DAO.IMPLEMANTATION.AgencyIMPL;
+import hm.bank.Model.DAO.IMPLEMANTATION.ClientIMPL;
+import hm.bank.Model.DAO.IMPLEMANTATION.CreditRequestIMPL;
 import hm.bank.Model.DAO.INTERFACES.AgencyDAO;
 import hm.bank.Model.DAO.INTERFACES.CreditState;
 import hm.bank.Model.DTO.Agency;
@@ -23,13 +25,29 @@ public class main {
 //            System.out.println(result.getBirthDate());
 
 
-//            Agency agency = new Agency("222", "hamza", "test", "0625182280");
-//            CreditRequest CreditRequest = new CreditRequest(2, agency.get(), client, 555, 6666, 666, date, "the first desc", CreditState.Pending);
-//            CreditRequestService creditNew = new CreditRequestService();
-//            creditNew.CreateCreditRequest(CreditRequest);
+//Agency agency = new Agency("111", "youcode", "safi", "0101010101");
+//AgencyIMPL agenctest = new AgencyIMPL();
+//agenctest.create(agency);
 
-//            AgencyDAO agenctest = new AgencyIMPL();
-//            agenctest.create(agency);
+//LocalDate date = LocalDate.now();
+//Client client = new Client("Mustapha", "FATIHI", date, "0650813123", "client111", "safi");
+//ClientIMPL clientIMPL = new ClientIMPL();
+//clientIMPL.insert(client);
+
+Agency agency = new Agency();
+agency.setCode("111");
+
+Client client = new Client();
+client.setCode("client111");
+client.setId(1);
+
+
+CreditRequest creditRequest = new CreditRequest(agency, client, 10000, 10, 1000, LocalDate.now(), "Notes", CreditState.Pending);
+
+CreditRequestIMPL creditRequestIMPL = new CreditRequestIMPL();
+creditRequestIMPL.insert(creditRequest);
+
+
 
 //            EmployeeDAO newEmployee = new EmployeeIMPL();
 //            Optional<Employee> employeeresult = newEmployee.findEmployeeById("employee1");
@@ -41,7 +59,7 @@ public class main {
 //            transaction.commit();
 //            System.out.println("Data inserted successfully.");
 
-            System.out.println(new CreditRequestService().getAllCreditRequests().get(0).getCreationDate());
+            //System.out.println(new CreditRequestService().getAllCreditRequests().get(0).getCreationDate());
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -23,7 +23,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@WebServlet(urlPatterns = {"/getsimulation"})
+@WebServlet(urlPatterns = {"/getsimulation","/createcredit","/creditrequests"})
 public class CreditRequestServlet extends HttpServlet {
     CreditRequestService creditRequestService;
 
@@ -40,8 +40,8 @@ public class CreditRequestServlet extends HttpServlet {
                 getSimulation(req, resp);
             case "/createcredit":
                 createSimulation(req, resp);
-          case "/getCreditsList":
-                creditsList(req,resp);
+            case "/creditrequests":
+                creditRequestsList(req,resp);
         }
     }
 
@@ -75,8 +75,9 @@ public class CreditRequestServlet extends HttpServlet {
         request.getRequestDispatcher("/home.jsp").forward(request, response);
     }
   
-  private void creditsList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    if(req.getParameter("nbr")==null) {
+  private void creditRequestsList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        if(req.getParameter("nbr")==null) {
 
             List<CreditRequest> creditRequests = new CreditRequestService().getAllCreditRequests();
 
