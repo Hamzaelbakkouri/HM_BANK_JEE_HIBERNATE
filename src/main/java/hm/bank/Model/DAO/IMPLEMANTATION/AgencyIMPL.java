@@ -2,7 +2,6 @@ package hm.bank.Model.DAO.IMPLEMANTATION;
 
 import hm.bank.Model.DAO.INTERFACES.AgencyDAO;
 import hm.bank.Model.DTO.Agency;
-import hm.bank.Model.DTO.Client;
 import hm.bank.Utils.JPAUtil;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
